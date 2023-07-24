@@ -9,6 +9,15 @@ namespace ConAppAssisgnment14
 {
     internal class Program
     {
+        public static bool IsSorted(int[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                if (array[i] > array[i + 1])
+                    return false;
+            }
+            return true;
+        }
         
         public static void InsertionSort(int[] arr)
         {
@@ -72,6 +81,10 @@ namespace ConAppAssisgnment14
             stopwatch.Stop();
             Console.WriteLine("array with bubble sort");
             Print(arr);
+            bool check = IsSorted(arr1);
+            if (check) { Console.WriteLine("Array is Sorted"); }
+            else { Console.WriteLine("unsorted"); }
+            Console.WriteLine($"ArraySize {arr.Length} Time Take {stopwatch.Elapsed.TotalMilliseconds} milliseconds");
 
             Console.WriteLine("*******************Insertion Sort*******************");
             int[] arr1 = { 111, 21, 235, 14, 767, 346 };
@@ -83,7 +96,10 @@ namespace ConAppAssisgnment14
             stopwatch.Stop();
             Console.WriteLine("array with Insertion sort");
             Print(arr1);
-            Console.WriteLine($"ArraySize {arr1.Length} Time Take {stopwatch.Elapsed.TotalMilliseconds} milliseconds");
+            bool check1 = IsSorted(arr1);
+            if (check1) { Console.WriteLine("Array is Sorted"); }
+            else { Console.WriteLine("unsorted"); }
+           
             Console.WriteLine($"ArraySize {arr1.Length} Time Take {stopwatch1.Elapsed.TotalMilliseconds} milliseconds");
 
 
